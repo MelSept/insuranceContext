@@ -1,4 +1,6 @@
-m; // Creamos un componente para el titulo y contenido
+import Form from "./Form";
+
+// Creamos un componente para el titulo y contenido
 const AppInsurance = () => {
   return (
     <>
@@ -10,6 +12,7 @@ const AppInsurance = () => {
 
       <main className="bg-white md:w-2/3 lg:w2/4 mx-auto shadow rounded-lg p-10">
         <p>Contenido Principal</p>
+        <Form />
       </main>
     </>
   );
