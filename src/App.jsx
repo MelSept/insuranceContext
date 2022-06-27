@@ -1,7 +1,12 @@
 import AppInsurance from "./components/AppInsurance";
+import { InsuranceProvider } from "./context/InsuranceProvider";
 
-const App = () => {
-  return <AppInsurance />;
-};
+function App() {
+  return (
+    <InsuranceProvider>
+      <AppInsurance />
+    </InsuranceProvider>
+  );
+}
 
 export default App;

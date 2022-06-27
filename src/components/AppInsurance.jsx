@@ -1,4 +1,5 @@
 import Form from "./Form";
+import useInsurance from "../hooks/useInsurance";
 
 // Creamos un componente para el titulo y contenido
 const AppInsurance = () => {

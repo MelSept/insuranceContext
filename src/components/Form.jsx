@@ -1,5 +1,6 @@
 import { BRANDS, YEARS, PLANS } from "../constants";
 import { Fragment } from "react";
+import useInsurance from "../hooks/useInsurance";
 
 const Form = () => {
   return (
@@ -33,11 +34,11 @@ const Form = () => {
           >
             <option value="">-- Selecciona Año --</option>
 
-            {YEARS.map((year) => {
+            {YEARS.map((year) => (
               <option key={year} value={year}>
                 {year}
-              </option>;
-            })}
+              </option>
+            ))}
           </select>
         </div>
 
