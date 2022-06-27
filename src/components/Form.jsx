@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import useInsurance from "../hooks/useInsurance";
 
 const Form = () => {
+  const { data, handleChangeDatos } = useInsurance();
   return (
     <>
       <form>
@@ -13,14 +14,16 @@ const Form = () => {
           <select
             name="marca"
             className="w-full p-3 bg-white border border-gray-200"
+            onChange={(e) => handleChangeDatos(e)}
+            value={data.marca}
           >
             <option value="">-- Selecciona Marca --</option>
 
-            {BRANDS.map((brands) => {
+            {BRANDS.map((brands) => (
               <option key={brands.id} value={brands.id}>
                 {brands.nombre}
-              </option>;
-            })}
+              </option>
+            ))}
           </select>
         </div>
 
@@ -29,8 +32,10 @@ const Form = () => {
             Año
           </label>
           <select
-            name="marca"
+            name="year"
             className="w-full p-3 bg-white border border-gray-200"
+            onChange={(e) => handleChangeDatos(e)}
+            value={data.year}
           >
             <option value="">-- Selecciona Año --</option>
 
@@ -50,7 +55,12 @@ const Form = () => {
             {PLANS.map((plan) => (
               <Fragment key={plan.id}>
                 <label>{plan.nombre}</label>
-                <input type="radio" name="plan" value={plan.id} />
+                <input
+                  type="radio"
+                  name="plan"
+                  value={plan.id}
+                  onChange={(e) => handleChangeDatos(e)}
+                />
               </Fragment>
             ))}
           </div>
