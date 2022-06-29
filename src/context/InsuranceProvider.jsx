@@ -18,6 +18,7 @@ const InsuranceProvider = ({ children }) => {
 
   const [error, setError] = useState("");
   const [result, setResult] = useState(0);
+  const [load, setLoad] = useState(false);
 
   const handleChangeDatos = (e) => {
     setData({
@@ -48,7 +49,12 @@ const InsuranceProvider = ({ children }) => {
 
     //Formatear dinero
     result = moneyFormat(result);
-    setResult(result);
+
+    setLoad(true);
+    setTimeout(() => {
+      setResult(result);
+      setLoad(false);
+    }, 3000);
   };
 
   return (
@@ -59,6 +65,8 @@ const InsuranceProvider = ({ children }) => {
         error,
         setError,
         insuranceProvider,
+        result,
+        load,
       }}
     >
       {" "}

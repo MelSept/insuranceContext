@@ -1,8 +1,11 @@
 import Form from "./Form";
 import useInsurance from "../hooks/useInsurance";
+import Spinner from "./Spinner";
+import Result from "./Result";
 
 // Creamos un componente para el titulo y contenido
 const AppInsurance = () => {
+  const { result, load } = useInsurance();
   return (
     <>
       <header className="my-10">
@@ -12,8 +15,8 @@ const AppInsurance = () => {
       </header>
 
       <main className="bg-white md:w-2/3 lg:w2/4 mx-auto shadow rounded-lg p-10">
-        <p>Contenido Principal</p>
         <Form />
+        {load ? <Spinner /> : <Result />}
       </main>
     </>
   );
